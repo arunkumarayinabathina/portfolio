@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card"; // Adjust this import based on your directory structure
-import { Button } from "@/components/ui/button"; // Same here, ensure the correct import path
+import { Button } from "@/components/ui/button"; // Ensure the correct import path
 
 function Home() {
   const handleDownload = () => {
@@ -19,26 +18,27 @@ function Home() {
 
   return (
     <div className="bg-gray-800 flex items-center justify-center min-h-screen px-4 sm:px-8">
-      {/* Responsive Card with Simplified Styling */}
-      <Card className="w-full max-w-2xl bg-gray-900 rounded-lg shadow-xl border border-gray-700">
-        <CardHeader className="p-6 text-center bg-gray-800 rounded-t-lg">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white">
+      <div className="text-center w-full max-w-3xl">
+        {/* Large Top Spacing */}
+        <div className="py-16">
+          <h1 className="text-5xl font-extrabold text-white mb-6">
             Hello, I'm Arun
           </h1>
-        </CardHeader>
-        <CardContent className="p-6 sm:p-8 text-center">
-          <p className="text-lg sm:text-xl text-slate-300 mb-6 leading-relaxed">
+          <p className="text-xl text-slate-300 leading-relaxed mb-10">
             Welcome to my portfolio. I am Arun, passionate about web development
             with a strong knowledge of web frameworks and tools.
           </p>
+          {/* Call to Action */}
           <Button
             onClick={handleDownload}
-            className="bg-slate-700 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-md shadow-md hover:bg-slate-600 transition-transform duration-300 transform hover:scale-105"
+            className="bg-slate-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-slate-600 transition-transform duration-300 transform hover:scale-105"
           >
             View Resume
           </Button>
-        </CardContent>
-      </Card>
+        </div>
+        {/* Large Bottom Spacing */}
+        <div className="py-16"></div>
+      </div>
     </div>
   );
 }
