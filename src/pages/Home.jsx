@@ -3,9 +3,9 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"; // Adjust 
 import { Button } from "@/components/ui/button"; // Same here, ensure the correct import path
 
 function Home() {
-
   const handleDownload = () => {
-    const resumeUrl = "https://drive.google.com/file/d/1HGtwzLLzCA31o5nBYj21MSLUGl_Q8E78/view?usp=drive_link";
+    const resumeUrl =
+      "https://drive.google.com/file/d/1HGtwzLLzCA31o5nBYj21MSLUGl_Q8E78/view?usp=drive_link";
 
     const link = document.createElement("a");
     link.href = resumeUrl;
@@ -16,21 +16,25 @@ function Home() {
 
     document.body.removeChild(link);
   };
+
   return (
-    <div className="bg-gray-800 flex items-center justify-center min-h-screen py-12">
-      {/* Large and Attractive Card */}
-      <Card className="max-w-4xl mx-auto shadow-2xl bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 rounded-lg overflow-hidden border-4 border-transparent hover:border-gray-600 transform transition duration-300 hover:scale-105">
-        <CardHeader className="text-center p-8 mt-12 sm:mt-6 bg-transparent">
-          <h1 className="text-5xl font-extrabold text-white tracking-wide">
+    <div className="bg-gray-800 flex items-center justify-center min-h-screen px-4 sm:px-8">
+      {/* Responsive Card with Simplified Styling */}
+      <Card className="w-full max-w-2xl bg-gray-900 rounded-lg shadow-xl border border-gray-700">
+        <CardHeader className="p-6 text-center bg-gray-800 rounded-t-lg">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white">
             Hello, I'm Arun
           </h1>
         </CardHeader>
-        <CardContent className="bg-gray-900 p-12 text-center rounded-b-lg shadow-lg">
-          <p className="text-2xl text-slate-300 mb-8 leading-relaxed">
-            Welcome to my portfolio. I am Arun, passionate about web development with a strong knowledge of web frameworks and tools.
+        <CardContent className="p-6 sm:p-8 text-center">
+          <p className="text-lg sm:text-xl text-slate-300 mb-6 leading-relaxed">
+            Welcome to my portfolio. I am Arun, passionate about web development
+            with a strong knowledge of web frameworks and tools.
           </p>
-          {/* Stylized Button */}
-          <Button onClick={handleDownload} className="bg-slate-700 text-white font-extrabold py-3 px-8 rounded-lg shadow-lg hover:bg-slate-600 transition duration-300 ease-in-out transform hover:scale-105">
+          <Button
+            onClick={handleDownload}
+            className="bg-slate-700 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-md shadow-md hover:bg-slate-600 transition-transform duration-300 transform hover:scale-105"
+          >
             View Resume
           </Button>
         </CardContent>
