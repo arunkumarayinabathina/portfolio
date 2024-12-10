@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "./ui/navigation-menu";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "./ui/navigation-menu";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa"; // Importing FaBars and FaTimes
+import { FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,13 +16,12 @@ function Navbar() {
   return (
     <header className="w-full bg-gray-800 shadow-md">
       <nav className="container mx-auto flex justify-between items-center py-4 px-6">
-        {/* Logo or Branding (optional) */}
+        {/* Logo or Branding */}
         <div className="text-white font-extrabold text-3xl">Arun</div>
 
         {/* Desktop Menu */}
         <NavigationMenu className="hidden sm:flex flex-grow justify-center">
           <NavigationMenuList className="flex space-x-6 sm:space-x-12">
-            {/* Links (centered) */}
             <NavigationMenuItem>
               <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300 hover:cursor-pointer">
                 <Link to="/">Home</Link>
@@ -41,10 +45,10 @@ function Navbar() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Hamburger Icon for Mobile (now on the right) */}
+        {/* Hamburger Icon for Mobile */}
         <button
           onClick={toggleMenu}
-          className="sm:hidden text-white ml-auto" // 'ml-auto' ensures the button goes to the right
+          className="sm:hidden text-white ml-auto"
         >
           {isMenuOpen ? (
             <FaTimes size={30} /> // Show "X" when the menu is open
@@ -53,28 +57,39 @@ function Navbar() {
           )}
         </button>
 
-        {/* Mobile Menu (when the hamburger icon is clicked) */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <NavigationMenu className="sm:hidden absolute top-16 right-0 w-48 bg-gray-800 text-white p-4">
-            <NavigationMenuList className="flex flex-col items-start space-y-4">
-              {/* Links for mobile view, aligned right below the hamburger icon */}
+          <NavigationMenu className="sm:hidden absolute top-16 left-0 w-full bg-gray-800 text-white p-4 z-10">
+            <NavigationMenuList className="flex flex-row justify-evenly items-center space-x-4">
               <NavigationMenuItem>
-                <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
+                <NavigationMenuLink
+                  className="text-white font-medium text-lg hover:text-slate-300"
+                  onClick={toggleMenu} // Close menu on page click
+                >
                   <Link to="/">Home</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
+                <NavigationMenuLink
+                  className="text-white font-medium text-lg hover:text-slate-300"
+                  onClick={toggleMenu} // Close menu on page click
+                >
                   <Link to="/repos">Repos</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
+                <NavigationMenuLink
+                  className="text-white font-medium text-lg hover:text-slate-300"
+                  onClick={toggleMenu} // Close menu on page click
+                >
                   <Link to="/skills">Skills</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
+                <NavigationMenuLink
+                  className="text-white font-medium text-lg hover:text-slate-300"
+                  onClick={toggleMenu} // Close menu on page click
+                >
                   <Link to="/contact">Contact</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
