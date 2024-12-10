@@ -31,7 +31,7 @@ function Home() {
           </p>
           {/* Stylized Button */}
           <Button onClick={handleDownload} className="bg-slate-700 text-white font-extrabold py-3 px-8 rounded-lg shadow-lg hover:bg-slate-600 transition duration-300 ease-in-out transform hover:scale-105">
-            Download Resume
+            View Resume
           </Button>
         </CardContent>
       </Card>
