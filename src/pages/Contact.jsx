@@ -148,8 +148,7 @@ function Contact() {
       {/* ToastContainer to display notifications */}
       <ToastContainer 
         position="top-right" 
-        autoClose={3000} 
-        hideProgressBar 
+        autoClose={5000} 
         newestOnTop 
         closeOnClick 
         rtl={false} 
