@@ -3,6 +3,19 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"; // Adjust 
 import { Button } from "@/components/ui/button"; // Same here, ensure the correct import path
 
 function Home() {
+
+  const handleDownload = () => {
+    const resumeUrl = "https://drive.google.com/file/d/1HGtwzLLzCA31o5nBYj21MSLUGl_Q8E78/view?usp=drive_link";
+
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "resume.pdf";
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+  };
   return (
     <div className="bg-gray-800 flex items-center justify-center min-h-screen py-12">
       {/* Large and Attractive Card */}
@@ -17,7 +30,7 @@ function Home() {
             Welcome to my portfolio. I am Arun, passionate about web development with a strong knowledge of web frameworks and tools.
           </p>
           {/* Stylized Button */}
-          <Button className="bg-slate-700 text-white font-extrabold py-3 px-8 rounded-lg shadow-lg hover:bg-slate-600 transition duration-300 ease-in-out transform hover:scale-105">
+          <Button onClick={handleDownload} className="bg-slate-700 text-white font-extrabold py-3 px-8 rounded-lg shadow-lg hover:bg-slate-600 transition duration-300 ease-in-out transform hover:scale-105">
             Download Resume
           </Button>
         </CardContent>
