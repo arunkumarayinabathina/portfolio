@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import {EMAILJS_SERVICE_ID , EMAILJS_TEMPLATE_ID,EMAILJS_USER_ID} from './config.js'
+
 function Contact() {
   // State to store form input values
   const [name, setName] = useState("");
@@ -145,6 +145,18 @@ function Contact() {
           </div>
         </div>
       </div>
+      {/* ToastContainer to display notifications */}
+      <ToastContainer 
+        position="top-right" 
+        autoClose={3000} 
+        hideProgressBar 
+        newestOnTop 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+      />
     </div>
   );
 }
