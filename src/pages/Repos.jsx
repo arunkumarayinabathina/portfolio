@@ -29,7 +29,7 @@ function Repos() {
   if (loading) {
     return (
       <div className="text-center">
-        <h2 className="mb-6 text-2xl font-bold text-slate-300">Loading...</h2>
+        <h2 className="mb-6 text-2xl font-bold bg-gradient-to-r from-gray-700 to-gray-800 text-white">Loading...</h2>
       </div>
     );
   }
