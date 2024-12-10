@@ -59,8 +59,8 @@ function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <NavigationMenu className="sm:hidden absolute top-16 left-0 w-full bg-gray-800 text-white p-4 z-10">
-            <NavigationMenuList className="flex flex-row justify-evenly items-center space-x-4">
+          <NavigationMenu className="sm:hidden fixed top-16 right-0 w-3/4 bg-gray-800/90 text-white p-3 z-10">
+            <NavigationMenuList className="flex flex-col space-y-4">
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className="text-white font-medium text-lg hover:text-slate-300"
