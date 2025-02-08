@@ -23,22 +23,22 @@ function Navbar() {
         <NavigationMenu className="hidden sm:flex flex-grow justify-center">
           <NavigationMenuList className="flex space-x-6 sm:space-x-12">
             <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300 hover:cursor-pointer">
+              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
                 <Link to="/">Home</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300 hover:cursor-pointer">
+              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
                 <Link to="/repos">Repos</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300 hover:cursor-pointer">
+              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
                 <Link to="/skills">Skills</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300 hover:cursor-pointer">
+              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
                 <Link to="/contact">Contact</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
@@ -51,9 +51,9 @@ function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu (Full-Screen) */}
+      {/* Mobile Menu (Full Screen with Low Opacity) */}
       {isMenuOpen && (
-        <NavigationMenu className="fixed inset-0 bg-gray-800 flex flex-col items-center justify-center space-y-6 sm:hidden z-40">
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-80 flex flex-col items-center justify-center space-y-6 sm:hidden z-40">
           <NavigationMenuList className="flex flex-col space-y-6 text-center">
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -88,7 +88,7 @@ function Navbar() {
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
-        </NavigationMenu>
+        </div>
       )}
     </header>
   );
