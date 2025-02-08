@@ -51,14 +51,14 @@ function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu (Full Screen) */}
+      {/* Mobile Menu (Full-Screen) */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-gray-800 flex flex-col items-center justify-center space-y-8 sm:hidden z-40">
+        <NavigationMenu className="fixed inset-0 bg-gray-800 flex flex-col items-center justify-center space-y-6 sm:hidden z-40">
           <NavigationMenuList className="flex flex-col space-y-6 text-center">
             <NavigationMenuItem>
               <NavigationMenuLink
                 className="text-white text-2xl font-semibold hover:text-slate-300"
-                onClick={toggleMenu}
+                onClick={toggleMenu} // Close menu on click
               >
                 <Link to="/">Home</Link>
               </NavigationMenuLink>
@@ -88,7 +88,7 @@ function Navbar() {
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
-        </div>
+        </NavigationMenu>
       )}
     </header>
   );
