@@ -14,89 +14,47 @@ function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="w-full bg-gray-800 shadow-md">
+    <header className="w-full bg-gray-800 shadow-md fixed top-0 left-0 right-0 z-50">
       <nav className="container mx-auto flex justify-between items-center py-4 px-6">
-      
-        <div className="text-white font-extrabold text-3xl">Arun</div>
+        {/* Logo or Branding */}
+        <div className="text-white font-extrabold text-2xl sm:text-3xl">Arun</div>
 
-        
+        {/* Desktop Menu */}
         <NavigationMenu className="hidden sm:flex flex-grow justify-center">
           <NavigationMenuList className="flex space-x-6 sm:space-x-12">
-            <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300 hover:cursor-pointer">
-                <Link to="/">Home</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300 hover:cursor-pointer">
-                <Link to="/repos">Repos</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300 hover:cursor-pointer">
-                <Link to="/skills">Skills</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300 hover:cursor-pointer">
-                <Link to="/contact">Contact</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+            {["Home", "Repos", "Skills", "Contact"].map((item) => (
+              <NavigationMenuItem key={item}>
+                <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300 hover:cursor-pointer">
+                  <Link to={`/${item.toLowerCase()}`}>{item}</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
 
-        
-        <button
-          onClick={toggleMenu}
-          className="sm:hidden text-white ml-auto"
-        >
-          {isMenuOpen ? (
-            <FaTimes size={30} /> // Show "X" when the menu is open
-          ) : (
-            <FaBars size={30} /> // Show hamburger icon when the menu is closed
-          )}
+        {/* Hamburger Icon for Mobile */}
+        <button onClick={toggleMenu} className="sm:hidden text-white z-50">
+          {isMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
         </button>
-
-        
-        {isMenuOpen && (
-          <NavigationMenu className="sm:hidden fixed top-16 right-0 w-3/4 bg-gray-800/90 text-white p-3 z-10">
-            <NavigationMenuList className="flex flex-col space-y-4">
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  className="text-white font-medium text-lg hover:text-slate-300"
-                  onClick={toggleMenu} // Close menu on page click
-                >
-                  <Link to="/">Home</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  className="text-white font-medium text-lg hover:text-slate-300"
-                  onClick={toggleMenu} 
-                >
-                  <Link to="/repos">Repos</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  className="text-white font-medium text-lg hover:text-slate-300"
-                  onClick={toggleMenu} 
-                >
-                  <Link to="/skills">Skills</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  className="text-white font-medium text-lg hover:text-slate-300"
-                  onClick={toggleMenu} 
-                >
-                  <Link to="/contact">Contact</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        )}
       </nav>
+
+      {/* Mobile Menu */}
+      <div
+        className={`fixed inset-0 bg-gray-900 bg-opacity-95 flex flex-col items-center justify-center space-y-6 transform ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300 ease-in-out sm:hidden`}
+      >
+        {["Home", "Repos", "Skills", "Contact"].map((item) => (
+          <Link
+            key={item}
+            to={`/${item.toLowerCase()}`}
+            className="text-white text-xl font-semibold hover:text-gray-300"
+            onClick={toggleMenu}
+          >
+            {item}
+          </Link>
+        ))}
+      </div>
     </header>
   );
 }
