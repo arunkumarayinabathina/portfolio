@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
 } from "./ui/navigation-menu";
 import { Link } from "react-router-dom";
@@ -12,6 +11,7 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false); // Ensures menu closes on navigation
 
   return (
     <header className="w-full bg-gray-800 shadow-md fixed top-0 left-0 right-0 z-50">
@@ -23,24 +23,36 @@ function Navbar() {
         <NavigationMenu className="hidden sm:flex flex-grow justify-center">
           <NavigationMenuList className="flex space-x-6 sm:space-x-12">
             <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
-                <Link to="/">Home</Link>
-              </NavigationMenuLink>
+              <Link
+                to="/"
+                className="text-white font-medium text-lg hover:text-slate-300"
+              >
+                Home
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
-                <Link to="/repos">Repos</Link>
-              </NavigationMenuLink>
+              <Link
+                to="/repos"
+                className="text-white font-medium text-lg hover:text-slate-300"
+              >
+                Repos
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
-                <Link to="/skills">Skills</Link>
-              </NavigationMenuLink>
+              <Link
+                to="/skills"
+                className="text-white font-medium text-lg hover:text-slate-300"
+              >
+                Skills
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink className="text-white font-medium text-lg hover:text-slate-300">
-                <Link to="/contact">Contact</Link>
-              </NavigationMenuLink>
+              <Link
+                to="/contact"
+                className="text-white font-medium text-lg hover:text-slate-300"
+              >
+                Contact
+              </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
@@ -56,36 +68,40 @@ function Navbar() {
         <div className="fixed inset-0 bg-gray-900 bg-opacity-80 flex flex-col items-center justify-center space-y-6 sm:hidden z-40">
           <NavigationMenuList className="flex flex-col space-y-6 text-center">
             <NavigationMenuItem>
-              <NavigationMenuLink
+              <Link
+                to="/"
                 className="text-white text-2xl font-semibold hover:text-slate-300"
-                onClick={toggleMenu} // Close menu on click
+                onClick={closeMenu} // Close menu when clicking
               >
-                <Link to="/">Home</Link>
-              </NavigationMenuLink>
+                Home
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink
+              <Link
+                to="/repos"
                 className="text-white text-2xl font-semibold hover:text-slate-300"
-                onClick={toggleMenu}
+                onClick={closeMenu}
               >
-                <Link to="/repos">Repos</Link>
-              </NavigationMenuLink>
+                Repos
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink
+              <Link
+                to="/skills"
                 className="text-white text-2xl font-semibold hover:text-slate-300"
-                onClick={toggleMenu}
+                onClick={closeMenu}
               >
-                <Link to="/skills">Skills</Link>
-              </NavigationMenuLink>
+                Skills
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink
+              <Link
+                to="/contact"
                 className="text-white text-2xl font-semibold hover:text-slate-300"
-                onClick={toggleMenu}
+                onClick={closeMenu}
               >
-                <Link to="/contact">Contact</Link>
-              </NavigationMenuLink>
+                Contact
+              </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </div>
