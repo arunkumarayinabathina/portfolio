@@ -48,7 +48,7 @@ function Navbar() {
         {/* Hamburger Icon for Mobile */}
         <button
           onClick={toggleMenu}
-          className="sm:hidden text-white ml-auto"
+          className={`sm:hidden text-white ml-auto transition-all duration-300 ${isMenuOpen ? "rotate-90" : ""}`} // Added transition and rotation
         >
           {isMenuOpen ? (
             <FaTimes size={30} /> // Show "X" when the menu is open
@@ -60,9 +60,15 @@ function Navbar() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <>
-            <div className="fixed inset-0 bg-black/50 z-10" onClick={toggleMenu}></div> {/* Backdrop */}
-            <NavigationMenu className="sm:hidden fixed top-16 right-0 w-4/5 bg-gray-800/90 text-white p-6 z-20">
-              <NavigationMenuList className="flex flex-col space-y-6">
+            <div
+              className="fixed inset-0 bg-black/60 z-10" // Darkened backdrop
+              onClick={toggleMenu} // Close menu when clicking outside
+            ></div>
+            <NavigationMenu
+              className="sm:hidden fixed top-0 right-0 w-full h-full bg-gray-800 text-white p-8 z-20 transform transition-all duration-500 ease-in-out" // Fullscreen and animation
+              style={{ transform: isMenuOpen ? "translateX(0)" : "translateX(100%)" }}
+            >
+              <NavigationMenuList className="flex flex-col items-center space-y-8">
                 <NavigationMenuItem>
                   <NavigationMenuLink
                     className="text-white font-medium text-xl hover:text-slate-300"
