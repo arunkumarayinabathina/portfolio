@@ -13,6 +13,8 @@ function Navbar() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const closeMenu = () => setIsMenuOpen(false); // Added close function for the "X" button
+
   return (
     <header className="w-full bg-gray-800 shadow-md">
       <nav className="container mx-auto flex justify-between items-center py-4 px-6">
@@ -62,7 +64,7 @@ function Navbar() {
           <>
             <div
               className="fixed inset-0 bg-black/60 z-10" // Darkened backdrop
-              onClick={toggleMenu} // Close menu when clicking outside
+              onClick={closeMenu} // Close menu when clicking outside
             ></div>
             <NavigationMenu
               className="sm:hidden fixed top-0 right-0 w-full h-full bg-gray-800 text-white p-8 z-20 transform transition-all duration-500 ease-in-out" // Fullscreen and animation
@@ -72,7 +74,7 @@ function Navbar() {
                 <NavigationMenuItem>
                   <NavigationMenuLink
                     className="text-white font-medium text-xl hover:text-slate-300"
-                    onClick={toggleMenu} // Close menu on page click
+                    onClick={closeMenu} // Close menu on page click
                   >
                     <Link to="/">Home</Link>
                   </NavigationMenuLink>
@@ -80,7 +82,7 @@ function Navbar() {
                 <NavigationMenuItem>
                   <NavigationMenuLink
                     className="text-white font-medium text-xl hover:text-slate-300"
-                    onClick={toggleMenu} // Close menu on page click
+                    onClick={closeMenu} // Close menu on page click
                   >
                     <Link to="/repos">Repos</Link>
                   </NavigationMenuLink>
@@ -88,7 +90,7 @@ function Navbar() {
                 <NavigationMenuItem>
                   <NavigationMenuLink
                     className="text-white font-medium text-xl hover:text-slate-300"
-                    onClick={toggleMenu} // Close menu on page click
+                    onClick={closeMenu} // Close menu on page click
                   >
                     <Link to="/skills">Skills</Link>
                   </NavigationMenuLink>
@@ -96,7 +98,7 @@ function Navbar() {
                 <NavigationMenuItem>
                   <NavigationMenuLink
                     className="text-white font-medium text-xl hover:text-slate-300"
-                    onClick={toggleMenu} // Close menu on page click
+                    onClick={closeMenu} // Close menu on page click
                   >
                     <Link to="/contact">Contact</Link>
                   </NavigationMenuLink>
