@@ -1,19 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button"; // Ensure the correct import path
 
 function Home() {
-  const handleDownload = () => {
-    const resumeUrl =
-      "https://drive.google.com/file/d/1HGtwzLLzCA31o5nBYj21MSLUGl_Q8E78/view?usp=drive_link";
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "resume.pdf";
-    document.body.appendChild(link);
+  const handleOpenModal = () => {
+    setIsModalOpen(true); // Open the modal when button is clicked
+  };
 
-    link.click();
-
-    document.body.removeChild(link);
+  const handleCloseModal = () => {
+    setIsModalOpen(false); // Close the modal
   };
 
   return (
@@ -30,7 +26,7 @@ function Home() {
           </p>
           {/* Call to Action */}
           <Button
-            onClick={handleDownload}
+            onClick={handleOpenModal}
             className="bg-slate-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-slate-600 transition-transform duration-300 transform hover:scale-105"
           >
             View Resume
@@ -38,6 +34,29 @@ function Home() {
         </div>
         {/* Large Bottom Spacing */}
         <div className="py-16"></div>
+
+        {/* Modal for Resume */}
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white p-6 rounded-lg max-w-3xl w-full">
+              <button
+                onClick={handleCloseModal}
+                className="absolute top-4 right-4 text-2xl text-gray-700 hover:text-gray-500"
+              >
+                &times; {/* Close button */}
+              </button>
+              <h2 className="text-2xl font-semibold text-center mb-4">
+                Resume
+              </h2>
+              <iframe
+                src="https://drive.google.com/file/d/1HGtwzLLzCA31o5nBYj21MSLUGl_Q8E78/preview"
+                width="100%"
+                height="600px"
+                title="Resume"
+              ></iframe>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
