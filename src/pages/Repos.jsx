@@ -28,8 +28,12 @@ function Repos() {
 
   if (loading) {
     return (
-      <div className="text-center">
-        <h2 className="mb-6 text-2xl font-bold bg-gradient-to-r from-gray-700 to-gray-800 text-white">Loading...</h2>
+      <div className="flex justify-center items-center h-screen bg-gray-800">
+        {/* Loading Spinner */}
+        <div className="flex items-center justify-center space-x-2">
+          <div className="w-16 h-16 border-4 border-t-4 border-gray-500 border-solid rounded-full animate-spin"></div>
+          <h2 className="text-2xl text-white font-semibold">Loading Repositories...</h2>
+        </div>
       </div>
     );
   }
