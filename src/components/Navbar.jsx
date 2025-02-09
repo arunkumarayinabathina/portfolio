@@ -59,46 +59,49 @@ function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <NavigationMenu className="sm:hidden fixed top-16 right-0 w-3/4 bg-gray-800/90 text-white p-3 z-10">
-            <NavigationMenuList className="flex flex-col space-y-4">
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  className="text-white font-medium text-lg hover:text-slate-300"
-                  onClick={toggleMenu} // Close menu on page click
-                >
-                  <Link to="/">Home</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  className="text-white font-medium text-lg hover:text-slate-300"
-                  onClick={toggleMenu} // Close menu on page click
-                >
-                  <Link to="/repos">Repos</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  className="text-white font-medium text-lg hover:text-slate-300"
-                  onClick={toggleMenu} // Close menu on page click
-                >
-                  <Link to="/skills">Skills</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  className="text-white font-medium text-lg hover:text-slate-300"
-                  onClick={toggleMenu} // Close menu on page click
-                >
-                  <Link to="/contact">Contact</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <>
+            <div className="fixed inset-0 bg-black/50 z-10" onClick={toggleMenu}></div> {/* Backdrop */}
+            <NavigationMenu className="sm:hidden fixed top-16 right-0 w-4/5 bg-gray-800/90 text-white p-6 z-20">
+              <NavigationMenuList className="flex flex-col space-y-6">
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    className="text-white font-medium text-xl hover:text-slate-300"
+                    onClick={toggleMenu} // Close menu on page click
+                  >
+                    <Link to="/">Home</Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    className="text-white font-medium text-xl hover:text-slate-300"
+                    onClick={toggleMenu} // Close menu on page click
+                  >
+                    <Link to="/repos">Repos</Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    className="text-white font-medium text-xl hover:text-slate-300"
+                    onClick={toggleMenu} // Close menu on page click
+                  >
+                    <Link to="/skills">Skills</Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    className="text-white font-medium text-xl hover:text-slate-300"
+                    onClick={toggleMenu} // Close menu on page click
+                  >
+                    <Link to="/contact">Contact</Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </>
         )}
       </nav>
     </header>
   );
 }
 
-export default Navbar; 
+export default Navbar;
