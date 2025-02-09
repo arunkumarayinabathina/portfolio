@@ -50,7 +50,7 @@ function Navbar() {
         {/* Hamburger Icon for Mobile */}
         <button
           onClick={toggleMenu}
-          className={`sm:hidden text-white ml-auto transition-all duration-300 ${isMenuOpen ? "rotate-90" : ""}`} // Added transition and rotation
+          className="sm:hidden text-white ml-auto transition-all duration-300 z-20" // Ensure it's above other elements
         >
           {isMenuOpen ? (
             <FaTimes size={30} /> // Show "X" when the menu is open
